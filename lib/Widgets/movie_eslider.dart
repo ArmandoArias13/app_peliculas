@@ -7,8 +7,7 @@ class MovieSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250,
-      color: Colors.red,
+      height: 260,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,16 +39,30 @@ class _MoviePoster extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(5),
-      height: 130,
-      width: 90,
-      color: Colors.amber,
-      child: Column(children: const [
-        FadeInImage(
-          placeholder: AssetImage('assets/no-image.jpg'),
-          image: NetworkImage("https://via.placeholder.com/350x400"),
-          width: 130,
-          height: 190,
-          fit: BoxFit.cover,
+      height: 190,
+      width: 130,
+      child: Column(children: [
+        GestureDetector(
+          //para ver las acciones en las pantallas
+          onTap: () => Navigator.pushNamed(context, 'details',
+              arguments: 'movi-instans'),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: FadeInImage(
+              placeholder: AssetImage('assets/no-image.jpg'),
+              image: NetworkImage("https://via.placeholder.com/350x400"),
+              width: 130,
+              height: 160,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        SizedBox(height: 10), // salto de linea
+        Text(
+          'Star Wars: El nuevo jedi del nuevo mundo de la tierra criptonita',
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis, // para poner mas texto
+          textAlign: TextAlign.center,
         )
       ]),
     );
