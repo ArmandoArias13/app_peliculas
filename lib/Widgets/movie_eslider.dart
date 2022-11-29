@@ -7,7 +7,7 @@ class MovieSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 260,
+      height: 270,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,6 +37,10 @@ class _MoviePoster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var hds = <String, String>{
+      "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+    };
     return Container(
       margin: EdgeInsets.all(5),
       height: 190,
@@ -50,7 +54,7 @@ class _MoviePoster extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             child: FadeInImage(
               placeholder: AssetImage('assets/no-image.jpg'),
-              image: NetworkImage("https://via.placeholder.com/350x400"),
+              image: AssetImage('assets/no-image.jpg'),
               width: 130,
               height: 160,
               fit: BoxFit.cover,
